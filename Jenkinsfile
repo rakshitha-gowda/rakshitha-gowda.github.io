@@ -48,6 +48,9 @@ steps {
 */
   stage('Apply Kubernetes files') {
     steps{
+    sh 'mkdir -p $HOME/.kube'
+  sh 'sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config'
+  sh 'sudo chown $(id -u):$(id -g) $HOME/.kube/config'
     sh 'kubectl apply -f portfolio.yaml'
     }
 }
