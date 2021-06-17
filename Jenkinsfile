@@ -39,10 +39,17 @@ dockerImage.push()
 }
 }
 }
+/*
 stage('Docker Run') {
 steps {
   sh 'docker run -itd -p 8000:80 rakshithapapu7/portfolio-site:latest'
 }
+}
+*/
+  stage('Apply Kubernetes files') {
+    steps{
+    sh 'kubectl apply -f portfolio.yaml'
+    }
 }
 stage('Cleaning up local repository') {
 steps{
