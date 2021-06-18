@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: rakshithapapu7/portfolio-site:11
+        image: rakshithapapu7/portfolio-site:latest
         ports:
         - containerPort: 80
 ---
