@@ -33,12 +33,11 @@ dockerImage = docker.build registry + ":$BUILD_NUMBER"
 }
 stage('push image to dockerhub') {
 steps{
- sh 'docker login -u rakshithapapu7 -p Rakshitha@123'
- sh "docker tag  rakshithapapu7/portfolio-site:$BUILD_NUMBER rakshithapapu7/portfolio-site:latest"
- sh 'docker push rakshithapapu7/portfolio-site:latest'
 script {
 docker.withRegistry( '', registryCredential ) {
 dockerImage.push()
+ sh "docker tag  rakshithapapu7/portfolio-site:$BUILD_NUMBER rakshithapapu7/portfolio-site:latest"
+ sh 'docker push rakshithapapu7/portfolio-site:latest'
 }
 }
 }
