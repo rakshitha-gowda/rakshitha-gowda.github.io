@@ -20,6 +20,7 @@ stage('CheckAndStop'){
 steps
 {
   sh returnStatus: true, script: 'sudo kill -9 $(sudo lsof -t -i:8000)'
+   sh returnStatus: true, script: 'sudo kill -9 $(sudo lsof -t -i:30080)'
   sh 'echo kill done'
 }
 }
